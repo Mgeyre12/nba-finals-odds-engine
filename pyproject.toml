@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nba-playoff-odds"
+version = "0.1.0"
+description = "Daily NBA playoff championship odds pipeline"
+requires-python = ">=3.10"
+dependencies = [
+  "duckdb>=1.0.0",
+  "numpy>=1.26.0",
+  "pandas>=2.0.0",
+  "python-dotenv>=1.0.0",
+  "requests>=2.31.0",
+  "streamlit>=1.36.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["nba_playoff_odds*"]
+exclude = ["data*", "tests*", "scripts*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
